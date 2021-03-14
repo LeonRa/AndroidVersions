@@ -9,7 +9,8 @@
     <color name="colorOnSecondary">@color/black</color>
 
     <!-- Component colors -->
-    <color name="statusBarColor">@color/colorPrimaryVariant</color>
+    <color name="statusBar">@color/colorPrimaryVariant</color>
+    <color name="imagePlaceholder">@color/white</color>
 
     <!-- Solid colors -->
     <color name="black">#000000</color>

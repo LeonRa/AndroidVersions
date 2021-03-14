@@ -9,5 +9,6 @@
     <color name="colorOnSecondary">@color/black</color>
 
     <!-- Component colors -->
-    <color name="statusBarColor">@color/black</color>
+    <color name="statusBar">@color/black</color>
+    <color name="imagePlaceholder">@color/black</color>
 </resources>
