@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.leonra.versions.R
 import com.leonra.versions.databinding.FragmentVersionListBinding
 import com.leonra.versions.model.Version
+import com.leonra.versions.model.VersionRepository
 
 /**
  * A list of all of our Android [Version]s.
@@ -31,8 +33,16 @@ class VersionListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_first).setOnClickListener {
-            findNavController().navigate(R.id.action_VersionList_to_SecondFragment)
+        val versionAdapter = VersionListAdapter()
+
+        binding.recyclerView.run {
+            adapter = versionAdapter
+            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
         }
+
+        versionAdapter.submitList(VersionRepository.getAll())
     }
+
+    private fun onVersionClicked(version: Version) =
+        findNavController().navigate(R.id.action_VersionList_to_SecondFragment)
 }
