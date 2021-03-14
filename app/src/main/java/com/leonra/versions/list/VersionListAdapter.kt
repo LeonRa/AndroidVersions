@@ -20,7 +20,7 @@ class VersionListAdapter : ListAdapter<Version, VersionListAdapter.ViewHolder>(D
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = getItem(position)
+        val version = getItem(position)
 
         holder.binding.apply {
             // TODO Bind me!

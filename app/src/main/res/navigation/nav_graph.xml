@@ -19,10 +19,13 @@
     <fragment
         android:id="@+id/VersionDetail"
         android:name="com.leonra.versions.detail.VersionDetailFragment"
-        android:label=""
+        android:label="{label}"
         tools:layout="@layout/fragment_version_detail">
         <argument
             android:name="apiLevel"
             app:argType="integer" />
+        <argument
+            android:name="label"
+            app:argType="string" />
     </fragment>
 </navigation>

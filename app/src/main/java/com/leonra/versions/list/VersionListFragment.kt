@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import com.leonra.versions.R
 import com.leonra.versions.databinding.FragmentVersionListBinding
 import com.leonra.versions.model.Version
 import com.leonra.versions.model.VersionRepository
@@ -43,6 +42,11 @@ class VersionListFragment : Fragment() {
         versionAdapter.submitList(VersionRepository.getAll())
     }
 
-    private fun onVersionClicked(version: Version) =
-        findNavController().navigate(R.id.action_VersionList_to_SecondFragment)
+    // TODO: Hook up this callback
+    private fun onVersionClicked(version: Version) = findNavController().navigate(
+        VersionListFragmentDirections.actionVersionListToSecondFragment(
+            label = version.codename,
+            apiLevel = version.apiLevel,
+        )
+    )
 }
